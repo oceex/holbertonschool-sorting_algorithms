@@ -59,7 +59,7 @@ for (j = lf; j < ri; j++)
 {
 if (array[j] < piov)
 {
-if (i != j)
+if (array[i] != array[j])
 {
 tmp = array[i];
 array[i] = array[j];
@@ -70,7 +70,7 @@ i++;
 }
 }
 
-if (i != ri)
+if (array[i] != array[ri])
 {
 tmp = array[i];
 array[i] = array[ri];
