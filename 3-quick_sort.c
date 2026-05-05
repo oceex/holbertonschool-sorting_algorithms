@@ -5,7 +5,7 @@ void quick_sort(int *array, size_t size)
 int i = -1, j = 0;
 
 while (i < j)
-quicky(array, i, j, j - i + 1);
+quicky(array, i, j, size);
 
 }
 void quicky(int *array, int i, int j, int size)
