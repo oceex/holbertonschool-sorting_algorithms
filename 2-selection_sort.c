@@ -28,7 +28,8 @@ k = j;
 tmp = array[i];
 array[i] = array[k];
 array[k] = tmp;
-if (i != k)
+
 print_array(array, size);
+
 }
 }
