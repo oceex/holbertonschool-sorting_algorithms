@@ -3,11 +3,11 @@
 void quick_sort(int *array, size_t size)
 {
 
-quicky(array, 0, size - 1);
+quicky(array, 0, size - 1, size);
 
 }
 
-void quicky(int *array, size_t lf, size_t ri)
+void quicky(int *array, size_t lf, size_t ri, size_t size)
 {
 int piov = array[ri], tmp;
 size_t left = lf, right = ri;
@@ -26,14 +26,17 @@ right--;
 tmp = array[left];
 array[left] = array[right];
 array[right] = tmp;
+if (left != right)
+print_array(array, size);
 }
 
 tmp = array[left];
 array[left] = array[right];
 array[right] = tmp;
-
-quicky(array, lf, left - 1);
-quicky(array, left + 1, ri);
+if (left != right)
+print_array(array, size);
+quicky(array, lf, left - 1, size);
+quicky(array, left + 1, ri, size);
 
 }
 
