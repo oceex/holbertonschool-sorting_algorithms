@@ -36,7 +36,7 @@ size_t left = lf, right = ri;
 if (lf >= ri)
 return;
 
-while (left < right)
+while (left <= right)
 {
 while (array[left] <= piov && left < right)
 left++;
@@ -44,10 +44,18 @@ left++;
 while (array[right] >= piov && left < right)
 right--;
 
+
+if (left <= right)
+{
 tmp = array[left];
 array[left] = array[right];
 array[right] = tmp;
 print_array(array, size);
+
+left++;
+if (right > 0)
+right--;
+}
 }
 
 tmp = array[left];
@@ -55,8 +63,10 @@ array[left] = array[ri];
 array[ri] = tmp;
 print_array(array, size);
 
-if (left > 0)
+if (right > lf)
 quicky(array, lf, left - 1, size);
+
+if (left < ri)
 quicky(array, left + 1, ri, size);
 
 }
