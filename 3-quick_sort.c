@@ -18,56 +18,34 @@ quicky(array, 0, size - 1, size);
 
 }
 
-/**
- * quicky - Recursive QuickSort using Hoare partition scheme
- *
- * @array: Pointer to the array
- * @lf: Left index
- * @ri: Right index
- * @size: Full array size (for printing)
- *
- * Return: Nothing
- */
-void quicky(int *array, size_t lf, size_t ri, size_t size)
+
+size_t quicky(int *array, size_t lf, size_t ri, size_t size)
 {
 int piov = array[ri], tmp;
-size_t left = lf, right = ri;
+size_t i = lf, j;
 
-if (lf >= ri)
-return;
-
-while (left <= right)
+for (j = lf; j < ri; j++)
 {
-while (array[left] <= piov && left < right)
-left++;
-
-while (array[right] >= piov && left < right)
-right--;
-
-
-if (left <= right)
+if (array[j] < piov)
 {
-tmp = array[left];
-array[left] = array[right];
-array[right] = tmp;
+if (i != j)
+{
+tmp = array[i];
+array[i] = array[j];
+array[j] = tmp;
 print_array(array, size);
-
-left++;
-if (right > 0)
-right--;
+}
+i++;
 }
 }
 
-tmp = array[left];
-array[left] = array[ri];
+if (i != ri)
+{
+tmp = array[i];
+array[i] = array[ri];
 array[ri] = tmp;
 print_array(array, size);
-
-if (right > lf)
-quicky(array, lf, left - 1, size);
-
-if (left < ri)
-quicky(array, left + 1, ri, size);
-
 }
 
+return (i);
+}
