@@ -21,7 +21,8 @@ int tmp = 0;
 for (; i < size; i++)
 {
 k = i;
-for (j = 0; j < size; j++)
+
+for (j = i + 1; j < size; j++)
 if (array[k] > array[j])
 k = j;
 
@@ -29,7 +30,7 @@ tmp = array[i];
 array[i] = array[k];
 array[k] = tmp;
 
+if (i != k)
 print_array(array, size);
-
 }
 }
